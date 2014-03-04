@@ -1,6 +1,19 @@
-$i = 0
-def myfunc(x)
-  puts $i
+$search_for = 0
+def myfunc(start_index, ary)
+  length = ary.length
+  first = ary.slice(0, length/2)
+  last = ary.slice(length/2, length)
+  // End processing
+  if length == 2
+    if $search_for == ary[0]
+      return start_index
+    else
+      return start_index + 1
+    end
+  if $search_for < last[0]
+    myfunc(start_index, first)
+  else
+    myfunc(start_index + length/2, last)
 end
 a = []
 1000.times { a << rand(0..1000)}
