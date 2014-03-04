@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collection;
 import static org.junit.Assert.assertEquals;
+import org.junit.runner.JUnitCore;
 @RunWith (Parameterized.class)
 public class Tester {
 	@Parameters
@@ -28,5 +29,9 @@ public class Tester {
 	public void doIt() {
 		int foundAt = Chopper.find(searchList, searchFor);
 		assertEquals("" + expectAt + " is not " + foundAt + ".", expectAt, foundAt);
+	}
+	
+	public static void main(String[] arguments) {
+		JUnitCore.runClasses(Tester.class);
 	}
 }
